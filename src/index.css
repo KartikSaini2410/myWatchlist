@@ -5,9 +5,114 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: Arial, sans-serif !important;
+  background-color: #1f2122 !important;
+}
+
+.MuiSvgIcon-root{
+  color: white !important;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.login-container{
+  display: flex;
+}
+.login-container form{
+  justify-content: center;
+}
+.left-panel h3{
+  display: flex;
+  justify-content: center;
+  color: red;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5)
+}
+.search{
+  width: 90%;
+  margin: 0 auto;
+}
+.left-panel ul, .logout-btn{
+  width: 90%;
+  margin: 0 auto;
+}
+.left-panel ul li, .fa-plus-square-o{
+  cursor: pointer;
+}
+.left-panel ul li:hover{
+  background: grey;
+  color: #fff;
+}
+.left-panel ul li.selected{
+  background: red;
+  color: #fff;
+  border-radius: 6px;
+}
+.left-panel ul li.selected i{
+  margin-right: 5px;
+}
+.left-side{
+  border-right:1px solid #ccc;
+}
+.welcome-card{
+  width: 90%;
+  margin: 0 auto;
+  border: 2px solid #cb7f7f;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5)
+}
+.right-panel .heading{
+  font-size: 35px;
+  font-weight: 400;
+}
+.make-red{
+  color: red;
+}
+.right-panel input:focus, .right-panel textarea:focus, .right-panel select:focus  {
+  outline: none !important;
+  box-shadow: none !important;
+  border:1px solid #ccc !important;
+}
+
+.left-panel input:focus, .left-panel textarea:focus, .left-panel select:focus  {
+  outline: none !important;
+  box-shadow: none !important;
+  border:1px solid #ccc !important;
+}
+
+.movie-card{
+  border-bottom: 2px solid #ccc;
+  position: relative;
+}
+.movie-card img{
+  height: 200px !important;
+  opacity: 0.8;
+}
+.movie-card i{
+  position: absolute;
+  font-size: 25px;
+  left: 3px;
+  cursor: pointer;
+}
+.modal{
+  display: block !important;
+}
+.modal-dialog .modal-content{
+  background-color: #1f2122 !important;
+}
+.select-watchList li {
+  cursor: pointer;
+}
+.select-watchList li:hover{
+  background: grey;
+  color: #fff;
+}
+.listing-options{
+  overflow-y: auto;
+  max-height: 150px;
+}
+.empty-list h3{
+  justify-content: center;
+  display: flex;
+  color: red;
+} 
