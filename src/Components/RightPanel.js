@@ -6,7 +6,7 @@ import {add} from "../Redux/Reducers/WatchList";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const API_URL = "http://www.omdbapi.com?apikey=b6777573"
+const API_URL = "https://www.omdbapi.com?apikey=b6777573"
 
 export default function RightPanel() {
 
