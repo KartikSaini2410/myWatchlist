@@ -4,12 +4,14 @@ import LeftPanel from './LeftPanel';
 import RightPanel from './RightPanel';
 import WatchListPanel from './WatchListPanel';
 import { useSelector } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
 
   const [showWatchListPanel ,setShowWatchListPanel] = useState(false);
   const [saveWatchList ,setSaveWatchList] = useState({});
   const listUpdated = useSelector((state)=> state?.myLists);
+  const navigate = useNavigate();
 
   useEffect(()=>{
     let mailId = localStorage.getItem('email');
@@ -17,6 +19,13 @@ export default function Home() {
     let toShowList = _.find(findUser?.data, (item) => item?.name === saveWatchList?.name);
     setSaveWatchList(toShowList);
   }, [listUpdated])
+
+  useEffect(()=>{
+    let mailId = localStorage.getItem('email');
+    if(!mailId){
+      navigate('/');
+    }
+  })
 
   const showSavedWatchList = useCallback((item)=> {
     setShowWatchListPanel(true);
