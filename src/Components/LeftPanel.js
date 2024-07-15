@@ -16,33 +16,40 @@ const LeftPanel = ({showAllWatchListMovies, showSavedWatchList})=> {
 
     const navigate = useNavigate();
 
+    //when user clicks on home option
     const onSelect = (text) => {
         setSelected(text);
         showAllWatchListMovies();
     }
 
+    //when user clicks on plus icon of my lists option
     const addList = ()=>{
         setOpenModal(true);
     }
 
+    //when user close the modal
     const closeModal = useCallback(() => {
         setOpenModal(false);
     }, [])
 
+    //when user creates a new watchlist
     const ceateList = useCallback((value) => {
         let data = {
             name: value,
             list: []
         }
+        //created watchlist dispatched to store
         dispatched(add(data))
         setOpenModal(false);
     }, [])
 
+    //when user clicks on created watchlist
     const showAllWatchList = (list) => {
         setSelected(list?.name);
         showSavedWatchList(list);
     }
 
+    //when user clicks on logout then remove mail of user from local storage
     const logout = () => {
         localStorage.removeItem('email');
         navigate("/");
@@ -82,6 +89,7 @@ const LeftPanel = ({showAllWatchListMovies, showSavedWatchList})=> {
     </div>
   )
 }
+//memoized the component to stop unneccessary rerendering of component
 const MemoizedLeftPanel = React.memo(LeftPanel);
 
 export default MemoizedLeftPanel;

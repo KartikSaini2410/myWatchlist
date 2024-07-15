@@ -11,6 +11,7 @@ export default function SignUp() {
     const dispatch = useDispatch();
 
     useEffect(()=>{
+        //if user try to redirect to signup page tdirectly then redirect to home page
         let mailId = localStorage.getItem('email');
         if(mailId){
             navigate('/home');
@@ -29,12 +30,14 @@ export default function SignUp() {
         setValues(e.target.value);
     }
 
+    //on submiting the mail, it saves in redux store and navigate the user to login page
     const handleSubmit = () => {
         if (validateEmail()) {
             dispatch(add(values));
             setValues("");
             navigate("/");
         } else {
+            //if email not valid then show alert
             alert('Enter valid credentials');
         }
     }

@@ -14,6 +14,7 @@ export default function Home() {
   const navigate = useNavigate();
 
   useEffect(()=>{
+    //when ever movie is removed from watchlist then update the state
     let mailId = localStorage.getItem('email');
     let findUser = _.find(listUpdated, (item) => item?.mail === mailId)
     let toShowList = _.find(findUser?.data, (item) => item?.name === saveWatchList?.name);
@@ -21,17 +22,20 @@ export default function Home() {
   }, [listUpdated])
 
   useEffect(()=>{
+    //if user try to redirect to home page directly then it redirects to login page
     let mailId = localStorage.getItem('email');
     if(!mailId){
       navigate('/');
     }
   })
 
+  //when user clicks on any saved watchlist
   const showSavedWatchList = useCallback((item)=> {
     setShowWatchListPanel(true);
     setSaveWatchList(item);
   }, [])
 
+  //when user clicks on home option in left panel
   const showAllWatchListMovies = useCallback(()=>{
     setShowWatchListPanel(false);
     setSaveWatchList({});

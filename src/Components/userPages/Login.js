@@ -10,23 +10,24 @@ export default function Login() {
     const existingMails = useSelector((state)=>state?.allMail);
 
     useEffect(() => {
+        //if user try to redirect to login page directly it redirects to home page
        let mailId = localStorage.getItem('email');
        if(mailId){
         navigate('/home');
        }
     }, [])
     
-
+    //checks that in redux store logging mail is present or not
     const isMailExist = () => {
         return _.includes(existingMails, values);
     };
-
 
     const handleChange = (e) => {
         e.preventDefault();
         setValues(e.target.value);
     }
 
+    //on submiting the mail, user logged in and navigate to home page
     const handleSubmit = (e) => {
         e.preventDefault();
         if (isMailExist()) {
@@ -34,6 +35,7 @@ export default function Login() {
             setValues("");
             navigate("/home");
         } else {
+            //if mail not existing in redux store then show alert
             alert('Enter valid credentials');
         }
     }

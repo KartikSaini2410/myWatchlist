@@ -19,6 +19,7 @@ export default function RightPanel() {
     const dispatch = useDispatch();
     const mailId = localStorage.getItem('email');
 
+    //when user search new movie
     const searchMovies = useCallback(async (title) => {
         let searchFor = title ? title : "2024";
         const response = await fetch(`${API_URL}&s=${searchFor}`);
@@ -27,11 +28,13 @@ export default function RightPanel() {
             setMovies(data?.Search);
         }
         if(data.Error){
+            //show toast if any error
             toast(`Error: ${data.Error}`)
         }
     }, [])
 
     useEffect(()=>{
+        //search 2024 movies for the default search
         searchMovies("2024");
     }, [])
 
@@ -40,14 +43,18 @@ export default function RightPanel() {
         setSearchedMovieName(e.target.value);
     }
 
+    //when user clicks on add movie to watchlist icon
     const addToWatchList = useCallback((movie) => {
         setSelectedMovie(movie);
         setOpenListSelectionBox(true);
     }, [])
 
+    //when user selects the option from list to add in watchlist
     const selectedListItem = (listItem) =>{
         setOpenListSelectionBox(false);
+        //dispatch that selected movie to store
         dispatch(add([selectedMovie, listItem]));
+        //show toast when movie added to watchlist
         toast(`${selectedMovie?.Title} is added in your ${listItem?.name} list`);
     }
 
