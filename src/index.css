@@ -100,6 +100,9 @@ code {
 .modal-dialog .modal-content{
   background-color: #1f2122 !important;
 }
+.modal-dialog{
+  width: 90%;
+}
 .select-watchList li {
   cursor: pointer;
 }
@@ -116,3 +119,12 @@ code {
   display: flex;
   color: red;
 } 
+.back-btn{
+  margin-left: 1rem !important;
+}
+
+@media (max-width: 992px) {
+  .user-page{
+    width: 70% !important;
+  }
+}

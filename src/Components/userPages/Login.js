@@ -44,7 +44,7 @@ export default function Login() {
     <>
         <div style={{backgroundImage: 'url("https://images.unsplash.com/photo-1521967906867-14ec9d64bee8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fG1vdmllc3xlbnwwfHwwfHx8MA%3D%3D")', height: '100vh', backgroundSize: 'cover' }}>
             <div className="login-container container w-100 h-100">
-                <form className='w-50 m-auto border bg-dark border-success rounded' onSubmit={handleSubmit}>
+                <form className='w-50 user-page m-auto border bg-dark border-success rounded' onSubmit={handleSubmit}>
                     <div className="m-3">
                         <label htmlFor="exampleInputEmail1" className="form-label text-white">
                             Email address

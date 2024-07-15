@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const API_URL = "https://www.omdbapi.com?apikey=b6777573"
 
-export default function RightPanel() {
+const RightPanel = ({deviceType, goBack}) => {
 
     const [movies, setMovies] = useState([]);
     const [searchedMovieName, setSearchedMovieName] = useState("");
@@ -60,6 +60,7 @@ export default function RightPanel() {
 
   return (
     <div className='right-panel text-black'>
+        { _.isEqual(deviceType, "mobile") && <button type="button" onClick={goBack} className="btn btn-danger back-btn mt-2"><i className='fa fa-arrow-left'></i> Back</button>}
         <div className="row">
             <div className="col-sm-12">
                 <div className="card welcome-card mt-4">
@@ -119,3 +120,8 @@ export default function RightPanel() {
     </div>
   )
 }
+
+const MemoizedRightPanel = React.memo(RightPanel);
+
+export default MemoizedRightPanel;
+
